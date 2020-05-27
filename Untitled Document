@@ -1,0 +1,35 @@
+#!/bin/bash  
+
+echo “Git and dconf and curl and gnome tweaks will be installed” 
+sudo apt update
+sudo apt install git 
+git clone https://github.com/B00merang-Project/Windows-10.git 
+sudo mv Windows-10 /usr/share/themes
+cd /opt
+sudo wget https://github.com/B00merang-Project/Windows-10/releases/download/v0.9.9-AU/Windows.10.Icons.v0.5.tar.gz       
+tar -xvf Windows.10.Icons.v0.5.tar.gz
+sudo mv 'Windows 10 Icons' /usr/share/icons
+sudo apt install dconf-editor 
+dconf write /org/gnome/desktop/interface/gtk-theme "'Windows-10”‘
+dconf write /org/gnome/desktop/interface/icon-theme "'Windows.10.Icons.v0.5.tar.gz”’
+curl -L -O https://www.gnome-look.org/p/999870/ 
+tar xvf 155025-win8.tar.gz 
+sudo mv win-8 /usr/share/icons
+dconf write /org/gnome/desktop/interface/cursor-theme "'win-8”” 
+curl -L -O https://freight.cargo.site/w/1250/i/a9f227752a9ba3bc689092085a7e6eb87b787abd858c3e3f0aebdc6a40f138d0/Windows_Final_3840p_v10_opt.png 
+dconf write /org/gnome/desktop/background/picture-uri "'file:///home/$USER/Windows_Final_384p_v10_opt.png 
+dconf write /org/gnome/desktop/background/picture-options "'zoom'"
+sudo apt install gnome-tweak-tool 
+echo -e "${CYAN}Starting  : ${NC}${YELLOW}Installing required extensions${NC}" 
+curl -L -O https://www.dropbox.com/sh/0w5tykzad8n5c9e/AABAfF-f9jW9vHJsEkcSXQOia?dl=0 
+tar xvf AABAfF-f9jW9vHJsEkcSXQOia?dl=0 
+cd AABAfF-f9jW9vHJsEkcSXQOia?dl=0_FILES  
+echo -e "${CYAN}Starting  : ${NC}${YELLOW}Installing required extensions${NC}"
+#./gnome-ext-install.sh install user-theme@gnome-shell-extensions.gcampax.github.com dash-to-paneljderose9.github.com panel-osdberend.de.schouwer.gmail.com 
+./gnome-ext-install.sh install dash-to-paneljderose9.github.com panel-osdberend.de.schouwer.gmail.com  
+clear 
+echo -e "${GREEN}Finished  : ${NC}${YELLOW}Panel OSD,Dash to panel are instaled.${NC}" 
+clear
+
+
+
